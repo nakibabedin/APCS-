@@ -6,3 +6,7 @@ CW-Binary to Decimal and Vice Versa conversions
 Bin2Dec
 set the value of y to 0. for each integer (int) in the input, if the int number to the right is 1, add the value of 2^(int-1) to y. return y after the loop
 Dec2Bin
+
+1) Given input number n, divide n by 2 and store the remainder as string s. Return the quotient of n divided by 2.
+2) If the quotient is 0, then return s. If the quotient is not 0, then skip to step 3.
+3) Divide 
