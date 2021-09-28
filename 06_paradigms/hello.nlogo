@@ -1,1 +1,1 @@
-Write "Hello, world!"
+write "Hello, world!"
