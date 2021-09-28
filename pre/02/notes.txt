@@ -1,0 +1,1 @@
+Were there more clean ways to write out the print commands? It was quite tedious.

@@ -1,0 +1,2 @@
+I didn't understand question 5 at all. It felt pretty complicated and I didn't really know how to approach the problem. I also don't really understand the purpose of do while loops either. Why does Java have it whereas Python does not?
+

@@ -1,0 +1,1 @@
+I'm still struggling to understand how arrays work in Java. They are very different to how arrays work in python. I wasn't able to do the exercises because I couldn't understand arrays very well.
