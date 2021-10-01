@@ -1,0 +1,21 @@
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'nabedin30@cslab3-25.(none)')
+
+
+Explanation: You need to give your email and display name in order to commit the changes. You do not need to generate a new SSH key
+
+
+Illegal start to expression.
+
+Explanation: You have either an excess or lack of words where you defined your method.
+
+
