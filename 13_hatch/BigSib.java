@@ -1,16 +1,18 @@
 /*
 TNPG: Noble Narwhals | Roster: Nakib Abedin, Joker(ducky), Nicole Zhou, Ducky(ducky)
 APCS
-HW12 -- On Elder Individuality and the Elimination of Radio Fuzz
-2021-10-05
+HW13 -- Whee do BigSibs come from?
+2021-10-06
 
 
 DISCOVERIES
-1) When we create a method containing helloMsg, an instance variable, we received an error if we used static in the method header. Once we removed it, the code ran without error and completed its functionality.
-2) You can define a variable without a method. This was similar to global variables in NetLogo and Python
+1) We found out what a constructor is.
+2) The constructor essentially did what we did with the setHelloMsg method in a much more elegant manner.
+3) The variable should still be defined outside of the constructor if we plan on assigning a value inside of the constructor. When we did not do so, it returned an error.
+
 UNRESOLVED QUESTIONS
-1) Can anything take the place of "static" in the method header?
-2) Was it possible to code this homework without removing "static" from the method header?
+1) Were we meant to know what a constructor was beforehand?
+2) How do we make the instance variable private? I tried using typing in private before it and it returned an error.
 
 */
 

@@ -19,3 +19,9 @@ Illegal start to expression.
 Explanation: You have either an excess or lack of words where you defined your method.
 
 
+missing return statement
+	}
+	^
+Explanation: This is what happens when you assign a return type to a method (e.g. String, int) and you don't tell the function to return anything.
+If the method won't be returning anything, make the methodtype void.
+
