@@ -52,7 +52,7 @@ public class BankAccount {
 
   public short setPin( short newPin ) {
     short oldPin = pin;
-    if ((short) newPin >= 1000 & (short) newPin < 9999){
+    if (newPin >= 1000 & newPin < 9999){
     	pin = newPin;
     	return oldPin;
     } else {

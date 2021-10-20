@@ -52,8 +52,8 @@ public class BankAccount {
 	public void setPin(int pinNo) {
 		pin = pinNo;
 	}
-	public void setAccountNumber(int actno) {
-		accountNumber = actno;
+	public void setAccountNumber(int inputAcctNum) {
+		accountNumber = inputAcctNum;
 	}
 	public void setAccountBalance(double bal) {
 		accountBalance = bal;
@@ -93,7 +93,7 @@ public class BankAccount {
 		nakib.setName("nakib");
 		nakib.setPassword("NotPassword");
 		nakib.setPin(4562);
-		nakib.setAccountNumber(1234567890);
+		nakib.setAccountNumber(001000000);
 		nakib.setAccountBalance(10.00);
 		nakib.printAll();
 		nakib.deposit(100.00);
