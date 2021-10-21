@@ -10,12 +10,12 @@ public class StatsDriver {
 		System.out.println("6");
 		System.out.println(Stats.mean(12.0, 15.0));
 		System.out.println("expecting 13.5");
-		System.out.println(Stats.mean());
-		System.out.println("expecting an error; the method expects two integer literals");
+		// System.out.println(Stats.mean());
+		// System.out.println("expecting an error; the method expects two integer literals");
 		System.out.println(Stats.max(2,3));
 		System.out.println("expecting 3");
 		System.out.println(Stats.max(0,0));
-		System.out.println("expecting 0"));
+		System.out.println("expecting 0");
 		System.out.println(Stats.max(2.0, 3.0));
 		System.out.println("expecting 3.0");
 		System.out.println(Stats.max(2, 3.2));
