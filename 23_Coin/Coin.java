@@ -1,7 +1,9 @@
 /***
- *  class Coin
- *  by NOT Clyde "Thluffy" Sinclair
- *  SKELETON
+ TNPG: NAW Fam: Alif Rahman, Nakib Abedin
+ APCS Period 06
+ HW23 -- What does equality look like?
+ 2021-10-24
+ Time Spent: 1.0 hour
  ***/
 
 public class Coin {
@@ -11,7 +13,7 @@ public class Coin {
   private int flipCtr;
   private int headsCtr;
   private int tailsCtr;
-  private double bias;
+  double bias;
 
   //attributes aka instance vars
 
@@ -53,24 +55,25 @@ public class Coin {
   // Accessors...
   // ----------------------------
   public String getUpFace() {
-	return null;
+	   return upFace;
   }
 
   public int getFlipCtr() {
-	return 0;
+	   return flipCtr;
   }
 
   public double getValue() {
-	return 0.0;
+	   return value;
   }
 
   public int getHeadsCtr() {
-	return 0;
+	   return headsCtr;
   }
 
   public int getTailsCtr() {
-	return 0;
+	   return tailsCtr;
   }
+
   // ----------------------------
 
 
@@ -81,7 +84,20 @@ public class Coin {
    * Returns value assigned.
    ***/
   private double assignValue( String s ) {
-	return 0.0;
+	   if (s == "penny"){
+       value = 0.01;
+     }else if(s == "nickel"){
+       value = 0.05;
+     }else if(s == "dime"){
+       value = 0.10;
+     }else if(s == "quarter"){
+       value = 0.25;
+     }else if(s == "half dollar"){
+       value = 0.50;
+     }else if (s == "dollar"){
+       value = 1.00;
+     }
+     return value;
   }
 
 
@@ -90,8 +106,11 @@ public class Coin {
       precond:  s is "heads" or "tails", 0.0 <= d <= 1.0
       postcond: Coin's attribs reset to starting vals
   ***/
-  public void reset( String s, double d ) {
 
+  public void reset( String s, double d ) {
+      upFace = s;
+      value = d;
+      // We were a little confused on what to do for this method
   }
 
 
@@ -104,10 +123,19 @@ public class Coin {
    * Either headsCtr or tailsCtr incremented by 1, as approp.
    * Returns "heads" or "tails"
    ***/
-  public static double flip() {
+  public String flip() {
     double number = Math.random();
-    System.out.println(number);
-	return number;
+    if (number < bias) {
+      upFace = "heads";
+      flipCtr += 1;
+      headsCtr += 1;
+      return "heads";
+    }else{
+      upFace = "tails";
+      flipCtr += 1;
+      headsCtr += 1;
+      return "tails";
+    }
   }
 
 
@@ -118,7 +146,11 @@ public class Coin {
    * or both showing tails. False otherwise.
    ***/
   public boolean equals( Coin other ) {
-	return true;
+	   if (upFace == other.upFace){
+       return true;
+     }else{
+       return false;
+     }
   }
 
 
@@ -128,7 +160,7 @@ public class Coin {
    * postcond: Return String comprised of name and current face
    ***/
   public String toString() {
-	return null;
+	  return ("my name is " + name + " and my face is " + upFace);
   }
 
 }//end class

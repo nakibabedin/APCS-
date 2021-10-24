@@ -13,12 +13,9 @@
 public class Driver {
 
   public static void main( String[] args ) {
-    Coin.flip();
     //build Objects from blueprint specified by class Coin
 
-
     //test default constructor
-    /*===================TOP==========================
       Coin mine = new Coin();
       //test 1st overloaded constructor
       Coin yours = new Coin( "quarter" );
@@ -41,7 +38,19 @@ public class Driver {
       else {
         System.out.println( "No match. Firestarter you can not be." );
       }
-      ====================BOTTOM======================*/
+      // bias is 0.0 since we did not define it. Hence, they will always match.
+      yours.bias = 0.5;
+      wayne.bias = 0.5;
+      // tests equals() method with bias as 0.5
+      if ( yours.equals(wayne) ) {
+        System.out.println( "Matchee matchee!" );
+      }
+      else {
+        System.out.println( "No match. Firestarter you can not be." );
+      }
+
+
+
 
   }//end main()
 
