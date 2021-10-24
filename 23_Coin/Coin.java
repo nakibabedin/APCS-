@@ -3,7 +3,14 @@
  APCS Period 06
  HW23 -- What does equality look like?
  2021-10-24
- Time Spent: 1.0 hour
+ Time Spent: 1.5 hour
+
+ DISCOVERIES:
+ 1) You can have an object as an argument for a method
+
+ Questions:
+ 1) Did we use bias correctly for the flip() method?
+ 2) Did we code the reset() method correctly?
  ***/
 
 public class Coin {
@@ -13,7 +20,7 @@ public class Coin {
   private int flipCtr;
   private int headsCtr;
   private int tailsCtr;
-  double bias;
+  private double bias;
 
   //attributes aka instance vars
 
@@ -124,6 +131,7 @@ public class Coin {
    * Returns "heads" or "tails"
    ***/
   public String flip() {
+    bias = 0.5;
     double number = Math.random();
     if (number < bias) {
       upFace = "heads";
