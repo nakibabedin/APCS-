@@ -17,7 +17,7 @@
 
  POST-v0 MODS:
  0)Added matchCtr variable to count the number of matches.
- 1)Added getMatchCtr variable to count get the value of variable matchCtr.
+ 1)Added getMatchCtr variable to get the value of variable matchCtr.
  2)Aligned parts of our code (i.e the constructors, some methods) to match the handout you gave us in class.
 
  ***/
