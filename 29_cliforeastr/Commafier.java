@@ -1,5 +1,19 @@
 /*
-Insert Heading
+TNPG: NAW FAM | Alif Rahman (assisted by Grippy) + Nakib Abedin (assisted by Joker)
+APCS pd06
+HW 29 -- Which Way Do You Roll?
+2021-11-02
+
+Time Spent: 2.0 hr
+
+Discoveries:
+0. For recursive functions, it helps to slowly move up from the simplest possible case to the most complex case.
+1. While Loops are better when you do not know how many times you have to iterate, for loops are better when you do know.
+2  The Integer class has lots of useful methods that can help us with typecasting
+3. If you're stuck, take a break. Sometimes a problem is 10x easier when you come back after a while.
+QCC:
+0. We still struggle with thinking recursively, but we do think we improved after this HW
+1. How does Integer.parseInt convert a String to a int? We should probably know this if we plan to keep using it.
 */
 
 public class Commafier {
@@ -24,6 +38,7 @@ public class Commafier {
     }
   }
   //FAILED ATTEMPT
+  //Lesson learned -- THINK SIMPLE
   */
 
   public static String commafyR(int x){
