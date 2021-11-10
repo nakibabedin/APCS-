@@ -1,4 +1,3 @@
-
 /*
  *
  *	██╗███╗░░██╗███████╗░█████╗░
@@ -15,15 +14,16 @@
  *	Spent: 1.3 hrs + 0.6hrs for formatting
  *	class Pig a pig latin translator.
  *	What we have done in v1. 
- *	
- *
+ *	--> implement the scanner into the program! big achievement
+ *	--> implement partial support for allowing y or not
  *
  *
 */
 
+import java.util.Scanner;
+
 public class Pig {
-	private static final String VOWELSNOY = "aeiouAEIOU";
-	private static final String VOWELS = "aeiouyAEIOUY";
+	private static final String VOWELS = "aeiouAEIOU";
 	private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private static final String PUNCS = ".,:;!?";
 
@@ -34,7 +34,7 @@ public class Pig {
 	 * @return
 	 **/
 	public static boolean hasA(String w, String letter) {
-		return w.toLowerCase().indexOf(letter) != -1;
+		return w.indexOf(letter) != -1;
 	} // end hasA()
 
 	/**
@@ -42,9 +42,19 @@ public class Pig {
 	 * @param letter
 	 * @return
 	 **/
+	public static boolean isAVowel(String letter, boolean useY) 
+	{
+		if (useY) {
+			return (VOWELS + "yY").indexOf(letter) >= 0;
+		}
+		else {
+			return VOWELS.indexOf(letter) >= 0;
+		}
+	}
+
 	public static boolean isAVowel(String letter) 
 	{
-		return VOWELS.toLowerCase().indexOf(letter) != -1;
+		return isAVowel(letter, false);
 	}
 
 	/**
@@ -61,8 +71,24 @@ public class Pig {
 	 * @param w
 	 * @return
 	 **/
+	public static boolean hasAVowel(String w, boolean useY) {
+		if (useY) {
+			for (String vowel : (VOWELS + "yY").split("")) {
+				if (w.split(vowel, -1).length - 1 >= 1) return true;
+			}
+			return false;
+		}
+		else {
+			for (String vowel : VOWELS.split("")) {
+				if (w.split(vowel, -1).length - 1 >= 1) return true;
+			}
+			return false;
+		}
+	}
+
 	public static boolean hasAVowel(String w) {
-		return w.indexOf(w) >= 0;
+		return hasAVowel(w, false);
+		// y is not a vowel by default.
 	}
 
 	/**
@@ -70,29 +96,30 @@ public class Pig {
 	 * @param w
 	 * @return
 	 **/
-	public static String allVowels(String w) {
-
+	public static String allVowels(String w, boolean useY) {
 		String ans = ""; // init return String
 
 		for (int i = 0; i < w.length(); i++) {
-
 			if (isAVowel(w.substring(i, i + 1)))
 				ans += w.substring(i, i + 1); // grow the return String
 		}
 		return ans;
 	}
 
+	public static String allVowels(String w) {
+		return allVowels(w, false);
+	}
 	/**
 	 * firstVowel: returns the first vowel in a string.
 	 * @param w
 	 * @return
 	 **/
-	public static String firstVowel(String w) {
+	public static String firstVowel(String w, boolean useY) {
 
 		String ans = "";
 
 		if (hasAVowel(w)) // Q: Why this necess?
-			ans = allVowels(w).substring(0, 1);
+			ans = allVowels(w, useY).substring(0, 1);
 
 		return ans;
 	}
@@ -102,8 +129,12 @@ public class Pig {
 	 * @param w
 	 * @return
 	 **/
+	public static boolean beginsWithVowel(String w, boolean useY) {
+		return isAVowel(w.substring(0, 1), useY);
+	}
+
 	public static boolean beginsWithVowel(String w) {
-		return isAVowel(w.substring(0, 1));
+		return beginsWithVowel(w, false);
 	}
 
 	/**
@@ -124,24 +155,24 @@ public class Pig {
 	 * @param yAsVowel
 	 * @return
 	 **/
-	public static String wordToPig(String w, boolean handlePunctuation, boolean handleCaps, boolean yAsVowel) {
+	public static String wordToPig(String w, boolean handlePunctuation, boolean handleCaps, boolean useY) {
 		String ans = "";
 		if (handlePunctuation) {
 			String punc = puncOnly(w);
 			String letts = lettersOnly(w);
-			if (beginsWithVowel(letts))
+			if (beginsWithVowel(letts, useY))
 				ans = letts + "way";
 			else {
-				int vPos = letts.indexOf(firstVowel(letts));
+				int vPos = letts.indexOf(firstVowel(letts, useY));
 				ans = letts.substring(vPos) + letts.substring(0, vPos) + "ay";
 			}
 			ans = ans + punc;
 		} else {
 			String letts = w;
-			if (beginsWithVowel(letts))
+			if (beginsWithVowel(letts, useY))
 				ans = letts + "way";
 			else {
-				int vPos = letts.indexOf(firstVowel(letts));
+				int vPos = letts.indexOf(firstVowel(letts, useY));
 				ans = letts.substring(vPos) + letts.substring(0, vPos) + "ay";
 			}
 		}
@@ -161,7 +192,7 @@ public class Pig {
 	}
 
 	/**
-	 * isUpperCase: checks if the letter is an uppercase one.
+	 * isUpperCase: checks if the java -cp xxx.jar YourProgram < "Path/to/the/file"letter is an uppercase one.
 	 * @param letter
 	 * @return
 	 **/
@@ -275,10 +306,15 @@ public class Pig {
 	 * main: test function
 	 * @param args
 	*/
-	/*
 	public static void main(String[] args) {
-		System.out.println(stringToPig("Pigway is funway."));
-		System.out.println(stringToPig("Yeasdkasdjikqjwmnd!!uiasDAQWDcDWEdqqs.....!!"));
+		// instantiate a Scanner with STDIN as its bytestream
+		Scanner sc = new Scanner(System.in);
+
+		while (sc.hasNextLine()) {
+			String l = sc.nextLine();
+			System.out.println("IN: " + l);
+			System.out.println("OUT: " + Pig.stringToPig(l));
+		}
+
 	}
-	*/
 }
