@@ -1,15 +1,17 @@
 /* NYAH - Hugo Jenkins + Boary, Anthony Sun + Corn, Nakib Abedin + Joker;
  * APCS
  * HW34: arrays
- * 2021-11-13
- * time spent: 1.1 hrs
+ * 2021-11-15
+ * time spent: 0.5 hrs
  *
- * DISCO:
- * If you need an extra parameter, you can use a helper method
- * You can call an overloaded method when making another method of the same name, if they serve similar purposes (populate)
- *
+ * DISCOS:
+ * 1) linSearchR was possible without a helper method
+ * 2) The JavaVisualizer is very helpful
+ * 3) Our implementation was recursive even though we used a helper procedure since we broke it down
+ *    into smaller problems to solve a more complex problem.
  * QCC:
- * Is recursive linear search possible without a helper function/extra parameter?
+ * 1) How can we determine if there is a way to solve a problem with recursion (without helper procedures)?
+ * 2) Is it bad to use a helper procedure when a problem can be done without one?
 */
 
 public class Loopier {
