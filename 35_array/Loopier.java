@@ -6,7 +6,7 @@
  *
  * DISCOS:
  * 1) linSearchR was possible without a helper method
- * 2) The JavaVisualizer is very helpful
+ * 2) The JavaVisualizer is very helpful. You can use it to determine if a method uses iteration or recusion.
  * 3) Our implementation was recursive even though we used a helper procedure since we broke it down
  *    into smaller problems to solve a more complex problem.
  * QCC:
