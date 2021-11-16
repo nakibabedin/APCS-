@@ -1,5 +1,5 @@
 /* NYAH - Hugo Jenkins + Boary, Anthony Sun + Corn, Nakib Abedin + Joker;
- * APCS
+ * APCS pd06
  * HW34: arrays
  * 2021-11-15
  * time spent: 0.5 hrs
