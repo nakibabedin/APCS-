@@ -1,0 +1,30 @@
+Nakib Abedin
+APCS pd06
+HW 36 - Debuggoin'
+2021-11-19
+Time Spent: 0.6 hour
+
+
+
+
+
+
+Error messages mean that something is wrong, but the suggested remedies may be unreliable. 
+
+
+
+If a program is hanging, that means that it is caught in an infinite loop.
+
+
+
+Add a print statement when entering the loop and one when exiting. If the first pops up but not the second, then the problem is with the loop.
+
+
+
+QCC: How does Java know there is an infinite recursion.
+
+
+
+Found it interesting how binary search is was applied to find errors
+
+
