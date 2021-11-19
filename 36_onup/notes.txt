@@ -4,27 +4,35 @@ HW 36 - Debuggoin'
 2021-11-19
 Time Spent: 0.6 hour
 
+First Read Notes:
 
-
-
-
-
-Error messages mean that something is wrong, but the suggested remedies may be unreliable. 
-
-
+Error messages mean that something is wrong, but the suggested remedies may be unreliable.
 
 If a program is hanging, that means that it is caught in an infinite loop.
 
-
-
 Add a print statement when entering the loop and one when exiting. If the first pops up but not the second, then the problem is with the loop.
-
-
 
 QCC: How does Java know there is an infinite recursion.
 
+Found it interesting how binary search is was applied to find errors (binary disection)
 
+Second Read Notes:
 
-Found it interesting how binary search is was applied to find errors
+Three Types of Errors:
+1) Compile Time
+2) Run Time
+3) Logic
 
-
+  1) Compile Time errors are usually due to some syntactical issues.
+      - Make sure you are compiling the right file
+      - Error messages should guide you, but they won't be able to tell you explicitly what is wrong.
+      - It is best to reach compatibility ASAP so that when you get an Error, you can narrow it down to a specific region.
+  2) Run Time errors are usually due to errors in the content of the code (e.g infinite loop/ infinite recursion)
+      - Use print statements when entering/ exiting a loop/ recursion. If You see only the statement for entering,
+      then chances are that the loop/ recursion is not built properly.
+      - Make sure to check the base case for recursion
+      - Stack Overflow error
+  3) Logic errors are errors in functionality.
+      - Only the coder/coders will know the intended functionality. There will be no error messages to deal with.
+        The best way to approach these types of problems is mapping out the flow of execution and making
+        changes to it in order to better suit the functionality.
