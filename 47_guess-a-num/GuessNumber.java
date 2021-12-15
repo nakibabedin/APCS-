@@ -1,8 +1,17 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// HW47 -- ?
-// 2021-12-15w
-// time spent: _ hrs
+// TNPG: NYA -- Anthony Sun + Corn; Nakib Abedin + Joker
+// APCS pd06
+// HW47 -- Binary Search
+// 2021-12-15
+// time spent: 0.5 hrs
+
+/***
+    DISCO:
+    0. Entering in a larger number than the high bound enlarges the rang unintentionally
+    1. break exits a loop
+    2. return exits a method 
+    QCC:
+    0. Should invalid guesses (i.e. ones that are outside of the given range) be counted towards the guessCtr ?
+ ***/
 
 /***
  * class GuessNumber -- fun fun fun!
@@ -19,12 +28,7 @@
  * Correct! It took 3 guesses
  ***/
 
-/***
-    DISCO:
 
-    QCC:
-
- ***/
 import java.util.Scanner;
 
 public class GuessNumber
