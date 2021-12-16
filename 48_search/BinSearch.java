@@ -1,3 +1,14 @@
+/*
+Anthony Sun + Corn, Nakib Abedin + Joker;
+APCS
+HW48 - search methods
+2021-12-15
+Time spent: 1 hr
+DISCOS:
+0. for x.compareTo(y), x and y must be comparables
+QCC:
+0. Is it possible to abridge iArr3, as it is very long?
+1. What does a "raw comparable" mean? Java doesn't seem to like our implemetations.
 /**
    class BinSearch
    Binary search on array of Comparables
@@ -16,33 +27,49 @@ public class BinSearch
   {
     //uncomment exactly 1 of the 2 stmts below:
 
-    return binSearchIter( a, target, 0, a.length-1 );
-    //return binSearchRec( a, target, 0, a.length-1 );
+    // return binSearchIter( a, target, 0, a.length-1 );
+    return binSearchRec( a, target, 0, a.length-1 );
   }
 
 
-  public static int binSearchRec( Comparable[] a,
-                                  Comparable target,
-                                  int lo, int hi )
+  public static int binSearchRec( Comparable[] a, Comparable target, int lo, int hi )
   {
 
-    int tPos = -1; //init return var to flag value -1
+    int tPos = -1;
+    if (hi-lo ==0) {
+      if (a[lo] == target) { // base case
+        tPos=lo;
+      }
+      return tPos;
+    }
 
     int m = (lo + hi) / 2; //init mid pos var
 
+    if (a[m].compareTo(target)==0){
+      return m;
+    }
 
+    // value at mid index higher than target
 
-    return tPos;
+    if (a[m].compareTo(target) > 0){
+      hi = m - 1;
+    }
+
+    // value at mid index lower than target
+    if (a[m].compareTo(target) < 0){
+      lo = m + 1;
+    }
+
+    return binSearchRec(a, target, lo, hi);
+
   }//end binSearchRec
 
 
-  public static int binSearchIter( Comparable[] a,
-                                   Comparable target,
-                                   int lo, int hi )
+  public static int binSearchIter( Comparable[] a, Comparable target, int lo, int hi )
   {
 
     int tPos = -1; //init return var to flag value -1
-    int m = (lo + hi) / 2; //init mid pos var
+    int m; //init mid pos var
 
     while( hi > lo ) { // run until lo & hi cross
 
@@ -68,6 +95,11 @@ public class BinSearch
         lo = m + 1;
       }
 
+    }
+
+    // lo = hi
+    if (a[lo] == target) {
+      tPos = lo;
     }
     return tPos;
   }//end binSearchIter
@@ -127,8 +159,8 @@ public class BinSearch
     iArr3[i] = i * 2;
     }
 
-    //printArray( iArr3 );
-    //System.out.println( "iArr3 sorted? -- " + isSorted(iArr3) );
+    printArray( iArr3 );
+    System.out.println( "iArr3 sorted? -- " + isSorted(iArr3) );
 
     //search for 6 in array
     System.out.println( binSearch(iArr2,2) );
@@ -139,7 +171,7 @@ public class BinSearch
     System.out.println( binSearch(iArr2,42) );
 
     //search for 43 in array
-    //System.out.println( binSearch(iArr2,43) );
+    System.out.println( binSearch(iArr2,43) );
 
     System.out.println( "now testing binSearch on iArr3..." );
     System.out.println( binSearch(iArr3,4) );
@@ -150,7 +182,6 @@ public class BinSearch
     System.out.println( binSearch(iArr3,43) );
 
     /*----------------------------------------------------
-
     ====================================================*/
 
 
