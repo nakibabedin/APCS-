@@ -1,3 +1,16 @@
+/*
+TNPG NYA | Anthony Sun + Corn; Nakib Abedin + Joker
+APCS pd06
+HW49 - We shall comply
+2021-12-22
+Time Spent: 0.7 hours
+DISCOS:
+0. You can use the throw keyword without a try and catch statement
+1. <object> instanceof <class> returns a boolean boolean value
+2. To comply with an interface, you need to override all methods.
+QCC:
+0. Should we have used try and catch statements for this homework?
+*/
 public class Driver {
   public static void main(String[] args) {
 
