@@ -88,7 +88,7 @@ public class Rational implements Comparable {
     if (r instanceof Rational) {
       return this.p*((Rational) r).q - ((Rational) r).p*this.q;
     }
-    throw new ClassCastException ("\ncompareTo() input is not a Rational")
+    throw new ClassCastException ("\ncompareTo() input is not a Rational");
   }
 
   public String compareToStr(Rational r) {
