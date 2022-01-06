@@ -1,13 +1,22 @@
+<<<<<<< HEAD
 // Clyde "Thluffy" Sinclair
 // APCS pd0
 // HW52 -- implementing selection sort
 // 2022-01-05w
 // time spent:  hrs
+=======
+// Ameer Alnasser + Nakib Abedin + Alif Rahman
+// APCS pd06
+// HW52 -- implementing selection sort
+// 2022-01-05w
+// time spent:  1.0 hrs
+>>>>>>> refs/remotes/origin/main
 
 /******************************
  *   class SelectionSort -- implements SelectionSort algorithm
  *
  * ALGO:
+<<<<<<< HEAD
  * 
  * DISCO
  *
@@ -23,6 +32,32 @@
  ******************************/
 
 
+=======
+ *  1) Find the maximum value of the collection.
+ *  2) After finidng the max value, swap the max value with the value at (length of the collection - passX)
+ *  3) Look for the max value between index 0 and index (length of the collection -passX) and swap again.
+ *  4) Repeat these steps until you complete (length of collection - 1) passes and the list will be sorted.
+ *
+ * DISCO
+ *  1) SelectionSort's best case scenario and worst case scenario are both length of the array-1 (given that you do not check to see if the array is sorted)
+ *  2) Using a temp variable is necessary when swapping values because otherwise a value would get lost.
+ *
+ * QCC
+ * q0: How many passes to sort n elements?
+ * a0: n-1 passes
+ * q1: What do you know after pass p?
+ * a1: p elements are sorted until p=n-1 where p+1 elements are sorted
+ * q2: How do you know if sorted?
+ * a2: after the n-1 pass, it has to be sorted.
+ * q3: What does a pass boil down to?
+ * a3: finding the minimum of a collection
+ *
+ * 1) When is it better to use SelectionSort over BubbleSort?
+ ******************************/
+
+
+
+>>>>>>> refs/remotes/origin/main
 import java.util.ArrayList;
 
 public class SelectionSort
@@ -66,6 +101,7 @@ public class SelectionSort
 
     //maxPos will point to position of SELECTION (greatest value)
     int maxPos;
+<<<<<<< HEAD
 
     for(  ) {
       System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
@@ -80,6 +116,28 @@ public class SelectionSort
 
       
       System.out.println( "after swap: " +  data );//diag
+=======
+    Comparable temp;
+
+    for(int pass=data.size()-1; pass > 0 ;pass--) {
+      // System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
+
+      maxPos=0;
+
+      for(int i=0; i <= pass; i++) {
+        if(data.get(i).compareTo(data.get(maxPos)) >= 0){
+          maxPos = i;
+        }
+
+        // System.out.println( "maxPos: " + maxPos );//diag
+        // System.out.println( data );//diag
+      }
+
+      temp = data.get(pass);
+      data.set(pass, data.get(maxPos));
+      data.set(maxPos, temp);
+      // System.out.println( "after swap: " +  data );//diag
+>>>>>>> refs/remotes/origin/main
     }
   }//end selectionSort
 
@@ -107,6 +165,10 @@ public class SelectionSort
   {
 
     /*===============for VOID methods=============
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/main
     ArrayList glen = new ArrayList<Integer>();
     glen.add(7);
     glen.add(1);
@@ -121,9 +183,16 @@ public class SelectionSort
     System.out.println( "ArrayList coco before sorting:\n" + coco );
     selectionSortV(coco);
     System.out.println( "ArrayList coco after sorting:\n" + coco );
+<<<<<<< HEAD
       ============================================*/
 
     /*==========for AL-returning methods==========
+=======
+
+
+      ============================================*/
+
+>>>>>>> refs/remotes/origin/main
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
       glen.add(1);
@@ -143,8 +212,11 @@ public class SelectionSort
       + cocoSorted );
       System.out.println( "ArrayList coco after sorting:\n" + coco );
       System.out.println( coco );
+<<<<<<< HEAD
       ============================================*/
 
+=======
+>>>>>>> refs/remotes/origin/main
   }//end main
 
 }//end class SelectionSort

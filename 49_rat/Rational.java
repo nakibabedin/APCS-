@@ -1,13 +1,16 @@
 /*
-TNPG NYAH | Hugo Jenkins + Boary, Anthony Sun + Corn, Nakib Abedin + Joker
+TNPG NYA | Anthony Sun + Corn; Nakib Abedin + Joker
 APCS pd06
-HW42 - Be More Rational
-2021-12-04
-Time Spent: 0.5 hours
+HW49 - We shall comply
+2021-12-22
+Time Spent: 0.7 hours
 DISCOS:
-0. gcd only works with positive numbers so take the absolute values
+0. You can use the throw keyword without a try and catch statement
+1. <object> instanceof <class> returns a boolean boolean value
+2. To comply with an interface, you need to override all methods.
+
 QCC:
-0. Are these implementations of opperations with rational numbers the most robust?
+0. Should we have used try and catch statements for this homework?
 */
 
 
@@ -88,7 +91,7 @@ public class Rational implements Comparable {
     if (r instanceof Rational) {
       return this.p*((Rational) r).q - ((Rational) r).p*this.q;
     }
-    throw new ClassCastException ("\ncompareTo() input is not a Rational")
+    throw new ClassCastException ("\ncompareTo() input is not a Rational");
   }
 
   public String compareToStr(Rational r) {
