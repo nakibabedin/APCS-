@@ -1,38 +1,13 @@
-<<<<<<< HEAD
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// HW52 -- implementing selection sort
-// 2022-01-05w
-// time spent:  hrs
-=======
 // Ameer Alnasser + Nakib Abedin + Alif Rahman
 // APCS pd06
 // HW52 -- implementing selection sort
 // 2022-01-05w
 // time spent:  1.0 hrs
->>>>>>> refs/remotes/origin/main
 
 /******************************
  *   class SelectionSort -- implements SelectionSort algorithm
  *
  * ALGO:
-<<<<<<< HEAD
- * 
- * DISCO
- *
- * QCC
- * q0: How many passes to sort n elements?
- * a0: 
- * q1: What do you know after pass p?
- * a1: 
- * q2: How do you know if sorted?
- * a2:
- * q3: What does a pass boil down to?
- * a3: 
- ******************************/
-
-
-=======
  *  1) Find the maximum value of the collection.
  *  2) After finidng the max value, swap the max value with the value at (length of the collection - passX)
  *  3) Look for the max value between index 0 and index (length of the collection -passX) and swap again.
@@ -57,7 +32,6 @@
 
 
 
->>>>>>> refs/remotes/origin/main
 import java.util.ArrayList;
 
 public class SelectionSort
@@ -101,22 +75,6 @@ public class SelectionSort
 
     //maxPos will point to position of SELECTION (greatest value)
     int maxPos;
-<<<<<<< HEAD
-
-    for(  ) {
-      System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
-
-      
-      for(  ) {
-        System.out.println( "maxPos: " + maxPos );//diag
-        System.out.println( data );//diag
-
-        
-      }
-
-      
-      System.out.println( "after swap: " +  data );//diag
-=======
     Comparable temp;
 
     for(int pass=data.size()-1; pass > 0 ;pass--) {
@@ -137,7 +95,6 @@ public class SelectionSort
       data.set(pass, data.get(maxPos));
       data.set(maxPos, temp);
       // System.out.println( "after swap: " +  data );//diag
->>>>>>> refs/remotes/origin/main
     }
   }//end selectionSort
 
@@ -165,10 +122,6 @@ public class SelectionSort
   {
 
     /*===============for VOID methods=============
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/main
     ArrayList glen = new ArrayList<Integer>();
     glen.add(7);
     glen.add(1);
@@ -178,21 +131,12 @@ public class SelectionSort
     System.out.println( "ArrayList glen before sorting:\n" + glen );
     selectionSortV(glen);
     System.out.println( "ArrayList glen after sorting:\n" + glen );
-
     ArrayList coco = populate( 10, 1, 1000 );
     System.out.println( "ArrayList coco before sorting:\n" + coco );
     selectionSortV(coco);
     System.out.println( "ArrayList coco after sorting:\n" + coco );
-<<<<<<< HEAD
       ============================================*/
 
-    /*==========for AL-returning methods==========
-=======
-
-
-      ============================================*/
-
->>>>>>> refs/remotes/origin/main
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
       glen.add(1);
@@ -212,11 +156,6 @@ public class SelectionSort
       + cocoSorted );
       System.out.println( "ArrayList coco after sorting:\n" + coco );
       System.out.println( coco );
-<<<<<<< HEAD
-      ============================================*/
-
-=======
->>>>>>> refs/remotes/origin/main
   }//end main
 
 }//end class SelectionSort
