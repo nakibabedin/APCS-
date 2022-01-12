@@ -1,5 +1,12 @@
 public class MySorts {
 
+/*
+  Bubble ALGO:
+ * 1) Create the bubble. Start from one end (in this case, index 0). Set n=0 and set the bubble as n and n+1.
+ * 2) If n>n+1, swap the values. Then increment n by one and repeat until you reach the end of the list.
+ * 3) Check if the list is sorted (if there are no swaps after one complete iterationm then it must be sorted).
+
+*/
   public static void bubble( ArrayList<Comparable> data){
     for (int x = data.size()-1; x > 0; x--) {
       for (int i = 0; i < x; i++) {
@@ -13,6 +20,14 @@ public class MySorts {
       }
     }
   }
+
+  /*
+  Selection ALGO:
+  *  1) Find the maximum value of the collection.
+  *  2) After finidng the max value, swap the max value with the value at (length of the collection - passX)
+  *  3) Look for the max value between index 0 and index (length of the collection -passX) and swap again.
+  *  4) Repeat these steps until you complete (length of collection - 1) passes and the list will be sorted.
+  */
 
   public static void selection( ArrayList<Comparable> data ){
      //note: this version places greatest value at "rightmost" end
@@ -32,8 +47,14 @@ public class MySorts {
        data.set(pass, data.get(maxPos));
        data.set(maxPos, temp);
      }
-   }//end selectionSort
-
+   }
+/*
+   Insetion ALGO:
+   *  1) Set the partition ( a marker which says all elements to one side are sorted ) to 1.
+   *  2) For each element in the unsorted region (rightmost index up to the partition), set the element to the index of the partition and compare it with each value before it.
+   *  3) if the value is less than the previous value, swap places with it. If you swap, repeat this step.
+   *  4) Once the partition reaches the end of the collection, the collection will thusly be sorted.
+*/
   public static void insertion( ArrayList<Comparable> data){
       for(int partition = 1; partition < data.size(); partition++) {
         //partition marks first item in unsorted region
@@ -52,5 +73,5 @@ public class MySorts {
             break;
         }
       }
-    }//end insertionSortV
+    }
 }
