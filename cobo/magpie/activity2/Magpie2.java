@@ -1,3 +1,11 @@
+/*
+Explain
+What happens when more then one key word appears in a String?
+The keyword that came first in the chain of else if statments will be the one that the chatbot responds to.
+
+Activity 2 Question 1:
+A: The problem is that "no" is included in "know." This means that even though the user didn't use the word "no," the chat bot thinks the user used the keyword. We can address this by checking for spaces before and after the keyword. If there are no spaces, then the user used a different word that has the keyword within it.
+*/
 /**
  * A program to carry on conversations with a human user.
  * This is the initial version that:
@@ -42,14 +50,26 @@ public class Magpie2
 		{
 			response = "Tell me more about your family.";
 		}
-		else if (statement.indexOf("dog") > 0 || statement.indexof("cat") > 0)
+		else if (statement.indexOf("dog") >= 0 || statement.indexOf("cat") >= 0)
 		{
-			response = "Tell me more about your pets"
+			response = "Tell me more about your pets";
 		}
-		else if (statement.indexOf("tofr") > 0 || statement.indexOf("mykolyk") > 0){
-			response = "He sounds like a good teacher."
+		else if (statement.indexOf("tofr") >= 0 || statement.indexOf("mykolyk") >= 0){
+			response = "He sounds like a good teacher.";
 		}
-		else if (statement.trim())
+
+		else if (statement.indexOf("sad") >= 0 || statement.indexOf("tired") >= 0){
+			response = "So am I :(";
+		}
+		else if (statement.indexOf("grades") >= 0){
+			response = "Quit worrying about grades";
+		}
+		else if (statement.indexOf("relaxation") >= 0){
+			response = "Sounds very... fun";
+		}
+		else if (statement.trim().length()==0){
+			response = "Say something please.";
+		}
 		else
 		{
 			response = getRandomResponse();
@@ -63,7 +83,7 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -83,6 +103,12 @@ public class Magpie2
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+		else if (whichResponse == 4){
+			response = "Gee willikersd!";
+		}
+		else if (whichResponse == 5){
+			response = "Wow, that's really cool!";
 		}
 
 		return response;
