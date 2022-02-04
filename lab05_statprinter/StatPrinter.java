@@ -82,7 +82,7 @@ public class StatPrinter
   //*************** QUESTION 01 **************************
   //precond:  data.size() > 0
   //postcond: returns largest integer in data
-  public Integer max( ArrayList <Integer> data )
+  public Integer max( ArrayList <Integer> data ) // O(n)
   {
     /* YOUR IMPLEMENTATION HERE */
     int max = 0;
@@ -121,20 +121,40 @@ public class StatPrinter
   }
 
 
-  // //*************** QUESTION 04 **************************
-  // //postcond: returns list of modes in _frequency
-  // public ArrayList<Integer> getLocalModes()
-  // {
-  //   /* YOUR IMPLEMENTATION HERE */
-  //
-  // }
-  //
-  //
-  // //*************** QUESTION 05 **************************
-  // //precond:  longestBar > 0
-  // public void printHistogram( int longestBar )
-  // {
-  //   /* YOUR IMPLEMENTATION HERE */
-  // }
+  //*************** QUESTION 04 **************************
+  //postcond: returns list of modes in _frequency
+  public ArrayList<Integer> getLocalModes()
+  {
+    ArrayList <Integer> localModes = new ArrayList<>();
 
+
+  for(int i = 0; i<_frequency.size(); i++ ){
+    if(isLocalMode(i)){
+      localModes.add(_frequency.get(i));
+    }
+  }
+  return localModes;
+
+}
+
+
+  //*************** QUESTION 05 **************************
+  //precond:  longestBar > 0
+  public void printHistogram( int longestBar )
+  {
+  int big = max(_frequency);
+  int ratio = (longestBar/big);
+  int numbers;
+  String bar = "";
+  for(int e=0; e < _frequency.size(); e++){
+    numbers = _frequency.get(e) * ratio;
+    while(numbers > 0){
+  //    System.out.println("reach");
+      bar += "*";
+      numbers -= 1;
+    }
+    System.out.println(e + ": " + bar);
+    bar = "";
+  }
+}
 }//end class StatPrinter
