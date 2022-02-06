@@ -1,8 +1,8 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// NAOB Oscar Breen Nakib Abedin
+// APCS pd7
 // L05 -- pulling it together
-// 2022-02-03r
-// time spent:  hrs
+// 2022-02-07m
+// time spent: 2.0 hrs
 
 /***
  * class StatPrinterApp
@@ -18,10 +18,8 @@ public class StatPrinterApp
     /*=================
       data:
       [2,5,2,3,4,4,4]
-
       desired _freq:
       [0,0,2,1,3,1]
-
       freq initially:
       [0,0,0,0,0,0]
       =================*/

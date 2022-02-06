@@ -1,15 +1,13 @@
 // NAOB| Nakib Abedin + Oscar Breen
 // APCS pd07
 // L05 -- pulling it together
-// 2022-02-03r
-// time spent: 1.0 hrs
+// 2022-02-07m
+// time spent: 2.0 hrs
 
 
 /**
    An AP-style question, for practice...
-
    GOAL: Write the StatPrinter class below.
-
    WHAT YOU NEED TO KNOW:
    The StatPrinter Object receives an
    ArrayList of nonnegative integers, then builds a frequency ArrayList in which
@@ -18,19 +16,16 @@
    list would be [0,1,2,2,0,1]. This is read as 0 zeroes, 1 one, 2 twos,
    2 threes, 0 fours, 1 five. The size of the frequency list is the equal to
    the maximum value of the data.
-
    A capability of the class is to calculate local modes from the frequency
    list. A local mode is a value that is greater than the value at index-1
    and greater than the value at index+1. A local mode is never at the end
    points of the list. For example, if the frequency list is [1,2,1,4,2,3,5]
    then the local modes are 2 and 4.
-
    This class is also capable of printing a histogram of the frequencies, using
    '*'s to indicate a frequency amount. To print a histogram, the user specifies
    the longest sequence of '*'s used and then all other values are printed in
    proportion to this value. For example, if longest bar is 10 and the frequency
    list is [1,2,1,4,2,3,5] then the histogram printed looks like this:
-
    0 : **
    1 : ****
    2 : **
@@ -38,9 +33,7 @@
    4 : ****
    5 : ******
    6 : **********
-
    For each method, state run time efficiency using Big O notation.
-
    TIPS FOR AWESOME:
    * Keys to Success were so named (by Thinkeren) for a reason.
    * Look over all fxns, think a bit, decide which to tackle first.
@@ -84,7 +77,6 @@ public class StatPrinter
   //postcond: returns largest integer in data
   public Integer max( ArrayList <Integer> data ) // O(n)
   {
-    /* YOUR IMPLEMENTATION HERE */
     int max = 0;
 
     for(int i=0; i< data.size(); i++){
@@ -107,9 +99,9 @@ public class StatPrinter
   //    isLocalMode(0) -> false
   //    isLocalMode(1) -> true
   //    isLocalMode(5) -> true
-  public boolean isLocalMode( int i )
+
+  public boolean isLocalMode( int i ) // O(1)
   {
-    /* YOUR IMPLEMENTATION HERE */
     if (i > 0 &&
         i < _frequency.size() - 1 &&
         _frequency.get( i - 1 ) < _frequency.get( i ) &&
@@ -123,7 +115,7 @@ public class StatPrinter
 
   //*************** QUESTION 04 **************************
   //postcond: returns list of modes in _frequency
-  public ArrayList<Integer> getLocalModes()
+  public ArrayList<Integer> getLocalModes() // O(n)
   {
     ArrayList <Integer> localModes = new ArrayList<>();
 
@@ -140,7 +132,7 @@ public class StatPrinter
 
   //*************** QUESTION 05 **************************
   //precond:  longestBar > 0
-  public void printHistogram( int longestBar )
+  public void printHistogram( int longestBar ) //O (n^2)
   {
   int big = max(_frequency);
   int ratio = (longestBar/big);
