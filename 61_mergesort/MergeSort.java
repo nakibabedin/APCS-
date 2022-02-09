@@ -1,3 +1,20 @@
+/*
+N.O.A.B Oscar Breen Nakib Abedin
+APCS pd07
+HW61 -- MergeSort
+2022-2-8t
+time spent: 1.2 hrs
+
+DISCO:
+- arrays don't have an in-built feature that lets you add and remove items
+- the array's length is immutable
+- always check your for loop for index out of bound errors
+QCC:
+- What is the point of mess?
+- Why did we not use ArrayLists instead of Arrays?
+*/
+
+
 /***
   class MergeSort
   Implements mergesort on array of ints.
@@ -26,21 +43,36 @@ public class MergeSort
   private static int[] merge( int[] a, int[] b )
   {
     int[] mergeArr = new int[a.length + b.length];
-    while (a.length > 0 && b.length > 0){
-      if(a[0] < b[0]){
-        mergeArr.add(a[0]);
+    int counter = 0;
+    int aCounter = 0;
+    int bCounter = 0;
+
+    while (a.length > aCounter && b.length > bCounter){
+      if(a[aCounter] < b[bCounter]){
+        mergeArr[counter] = a[aCounter];
+        aCounter += 1;
+      }else if (a[aCounter] > b[bCounter]){
+        mergeArr[counter] = b[bCounter];
+        bCounter += 1;
       }else{
-        mergeArr.add(b[0]);
+        mergeArr[counter] = a[aCounter];
+        aCounter += 1;
       }
+      counter += 1;
     }
-    if(a.length == 0){
-      for(int num : a){
-        mergeArr.add(num);
+    if(b.length==bCounter){
+      for(int e = aCounter; e<a.length ; e++){
+        mergeArr[counter] = a[e];
+        counter += 1;
     }
     }else{
-      for(int num : b){
-        mergeArr.add(num);
+      for(int x = bCounter; x<b.length ; x++){
+        mergeArr[counter] = b[x];
+        counter += 1;
     }
+
+  }
+  return mergeArr;
 
   }//end merge()
 
@@ -52,18 +84,35 @@ public class MergeSort
    ******************************************************/
   public static int[] sort( int[] arr )
   {
+    if(arr.length == 1){
+      return arr;
+    }else{
+      int mid = arr.length/2;
+      int[] arr0 = new int[mid];
+      int[] arr1 = new int[arr.length - mid];
 
+      for( int i = 0 ; i<mid; i++ ){
+        arr0[i] = arr[i];
+      }
+      for( int e = 0; e<arr.length-mid; e++ ){
+        arr1[e] = arr[e+mid];
+      }
+      return merge(sort(arr0), sort(arr1));
+
+    }
   }//end sort()
 
 
 
-  //-------------------HELPERS-------------------------
-  //tester function for exploring how arrays are passed
-  //usage: print array, mess(array), print array. Whaddayasee?
-  public static void mess( int[] a ) {
+  // -------------------HELPERS-------------------------
+  // tester function for exploring how arrays are passed
+  // usage: print array, mess(array), print array. Whaddayasee?
+  public static void mess( int[] a) {
     for( int i = 0 ; i<a.length; i++ )
       a[i] = 0;
   }
+
+
 
   //helper method for displaying an array
   public static void printArray( int[] a ) {
@@ -78,7 +127,6 @@ public class MergeSort
   //main method for testing
   public static void main( String [] args )
   {
-    /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
       int[] arr0 = {0};
       int[] arr1 = {1};
       int[] arr2 = {1,2};
@@ -88,22 +136,23 @@ public class MergeSort
       int[] arr6 = {9,42,17,63,0,512,23};
       int[] arr7 = {9,42,17,63,0,9,512,23,9};
 
-      System.out.println("\nTesting mess-with-array method...");
-      printArray( arr3 );
-      mess(arr3);
-      printArray( arr3 );
+      // System.out.println("\nTesting mess-with-array method...");
+      // printArray( arr3 );
+      // mess(arr3);
+      // printArray( arr3 );
+      //
+      // System.out.println("\nMerging arr1 and arr0: ");
+      // printArray( merge(arr1,arr0) );
 
-      System.out.println("\nMerging arr1 and arr0: ");
-      printArray( merge(arr1,arr0) );
-
-      System.out.println("\nMerging arr4 and arr6: ");
-      printArray( merge(arr4,arr6) );
+      // System.out.println("\nMerging arr4 and arr6: ");
+      // printArray( merge(arr4,arr6) );
 
       System.out.println("\nSorting arr4-7...");
       printArray( sort( arr4 ) );
       printArray( sort( arr5 ) );
       printArray( sort( arr6 ) );
       printArray( sort( arr7 ) );
+      /*
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 

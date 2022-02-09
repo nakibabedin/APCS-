@@ -2,9 +2,18 @@ N.O.A.B Oscar Breen Nakib Abedin
 APCS
 HW60 -- A Termite is-a Turtle, a Thinker is-a Turtle
 2022-2-8t
-time spent: 0.3
+time spent: 1.2 hrs
 
+02-08-2022
+DISCO:
+- arrays don't have an in-built feature that lets you add and remove items
+- the array's length is immutable
+- always check your for loop for index out of bound errors
+QCC:
+- What is the point of mess?
+- Why did we not use ArrayLists instead of Arrays?
 
+02-07-2022
 DISCO
 - thinkers are sometimes receiving two piles before splitting.
 - handsa-out method is really effective
