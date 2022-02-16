@@ -1,3 +1,10 @@
+/*
+TNPG: NARG |Nakib Abedin; Russel Goychayev
+APCS pd07
+HW64 -- Coding Bat Recursion
+2022-02-14
+
+*/
 public int bunnyEars2(int bunnies) {
   if(bunnies == 0){
     return 0;
