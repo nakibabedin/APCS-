@@ -1,3 +1,11 @@
+/*
+TNPG: Standard Duo Configuration (Nakib Abedin, Orion Roven, Max Schneider)
+APCS pd07
+HW65 -- How Many Queens Can a Thinker Place, If a Thinker Can Place Queens...
+2022-02-17r
+Time Spent: 1.0 hr
+*/
+
 /***
  * class QueenBoard
  * Generates solutions for N-Queens problem.
@@ -27,7 +35,12 @@ public class QueenBoard
    */
   public boolean solve()
   {
-    return solveH(_board.length);
+    if(solveH(0)){
+      printSolution();
+      return true;
+    }
+    System.out.println("Not possible");
+    return false;
   }
 
 
@@ -38,15 +51,18 @@ public class QueenBoard
   private boolean solveH( int col )
   {
     if(col == _board.length) {
-      return false;
+      return true;
     }else{
-      if(addQueen(0, col)){
-        solveH(col+1);
-      }else{
-        removeQueen(0, col);
+     for(int row =0;row<_board.length;row++){ 
+      if(addQueen(row, col)){
+        if(solveH(col+1)){
+          return true;
+        }
       }
+      removeQueen(row, col);
     }
-    return true;
+    }
+    return false;
   }
 
 
@@ -77,9 +93,9 @@ public class QueenBoard
   //================= YE OLDE SEPARATOR =================
 
   /***
-   * <General description>
-   * precondition:
-   * postcondition:
+   * Adds a legal Queen
+   * precondition: row and col are less than _board.length
+   * postcondition: legal Queen added + returns true; no Queen added + returns false
    */
   private boolean addQueen(int row, int col)
   {
@@ -103,9 +119,9 @@ public class QueenBoard
 
 
   /***
-   * <General description>
-   * precondition:
-   * postcondition:
+   * reverts actions from addQueen()
+   * precondition: addQueen() is used; row and col are less than _board.length
+   * postcondition: board reverted back and true returned once run smoothly.
    */
   private boolean removeQueen(int row, int col){
     if ( _board[row][col] != 1 ) {
@@ -129,9 +145,9 @@ public class QueenBoard
 
 
   /***
-   * <General description>
-   * precondition:
-   * postcondition:
+   * Prints the state of the board
+   * precondition: _board initialized
+   * postcondition: n/a
    */
   public String  toString()
   {
@@ -149,42 +165,45 @@ public class QueenBoard
   //main method for testing...
   public static void main( String[] args )
   {
-    QueenBoard b = new QueenBoard(5);
-    System.out.println(b);
-    /** should be...
-       0	0	0	0	0
-       0	0	0	0	0
-       0	0	0	0	0
-       0	0	0	0	0
-       0	0	0	0	0
-    */
+    // QueenBoard b = new QueenBoard(50);
+    // System.out.println(b);
+    // /** should be...
+    //    0	0	0	0	0
+    //    0	0	0	0	0
+    //    0	0	0	0	0
+    //    0	0	0	0	0
+    //    0	0	0	0	0
+    // */
 
-    b.addQueen(3,0);
-    b.addQueen(0,1);
-    System.out.println(b);
-    /** should be...
-       0	1	-1	-2	-1
-       0	0	-2	0	0
-       0	-1	0	-1	0
-       1	-1	-1	-1	-2
-       0	-1	0	0	0
-    */
+    // b.addQueen(3,0);
+    // b.addQueen(0,1);
+    // System.out.println(b);
+    // /** should be...
+    //    0	1	-1	-2	-1
+    //    0	0	-2	0	0
+    //    0	-1	0	-1	0
+    //    1	-1	-1	-1	-2
+    //    0	-1	0	0	0
+    // */
 
-    b.removeQueen(3,0);
-    System.out.println(b);
-    /** should be...
-       0	1	-1	-1	-1
-       0	0	-1	0	0
-       0	0	0	-1	0
-       0	0	0	0	-1
-       0	0	0	0	0
-    */
+    // b.removeQueen(3,0);
+    // System.out.println(b);
+    // /** should be...
+    //    0	1	-1	-1	-1
+    //    0	0	-1	0	0
+    //    0	0	0	-1	0
+    //    0	0	0	0	-1
+    //    0	0	0	0	0
+    // */
     
+    //b.solve();
 
+    for(int e = 0; e < 20; e++){
+      QueenBoard b = new QueenBoard(e);
 
-    b.solve();
-    b.printSolution();
-
+      System.out.println("Testing Board of size " + e + " x "+ e);
+      b.solve();
+    }
   }
 
 }//end class
