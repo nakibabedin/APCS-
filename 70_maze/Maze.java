@@ -37,7 +37,7 @@ class MazeSolver
 {
   final private int FRAME_DELAY = 50;
 
-  private char[][] _maze;
+  public char[][] _maze;
   private int h, w; // height, width of maze
   private boolean _solved;
 
@@ -120,7 +120,9 @@ class MazeSolver
     try {
       Thread.sleep(n);
     } catch( InterruptedException e ) {
-      System.exit(0);
+      System.exit(0);// public boolean onPath( int x, int y) {
+  //
+  // }
     }
   }
 
@@ -135,28 +137,45 @@ class MazeSolver
     delay( FRAME_DELAY ); //slow it down enough to be followable
 
     //primary base case
-    if ( ??? ) {
-	???
+    if (_maze[x][y] == EXIT) {
+      _solved = true;
+       for(int i = 0; i < _maze.length; i++){
+         for(int e = 0; e < _maze[0].length; e++){
+           if(_maze[i][e] == HERO){
+             _maze[i][e] = VISITED_PATH;
+           }
+         }
+       }
+       return;
     }
     //other base cases
-    else if ( ??? ) {
-	???
+    else if (!(_maze[x][y] == PATH)) {
+      return;
+    }
+
+    else if(_solved){
       return;
     }
     //otherwise, recursively solve maze from next pos over,
     //after marking current location
     else {
-	???
+
+      _maze[x][y] = HERO;
       System.out.println( this ); //refresh screen
 
-???
+      solve(x,y-1);
+      solve(x+1,y);
+      solve(x,y+1);
+      solve(x-1,y);
+
       System.out.println( this ); //refresh screen
+      _maze[x][y] = VISITED_PATH;
     }
   }
 
-  //accessor method to help with randomized drop-in location
+  // accessor method to help with randomized drop-in location
   public boolean onPath( int x, int y) {
-
+    return _maze[x][y] == PATH;
   }
 
 }//end class MazeSolver
@@ -187,11 +206,19 @@ public class Maze
 
     //drop hero into the maze (coords must be on path)
     // ThinkerTODO: comment next line out when ready to randomize startpos
-    ms.solve( 4, 3 );
+    //ms.solve( 4, 3 );
 
     //drop our hero into maze at random location on path
     // YOUR RANDOM-POSITION-GENERATOR CODE HERE
-    //ms.solve( startX, startY );
+    int startX = (int)(Math.random() * ms._maze.length);
+    int startY = (int)(Math.random() * ms._maze[0].length);
+    while(!(ms.onPath(startX, startY))){
+      startX = (int)(Math.random() * ms._maze.length);
+      startY = (int)(Math.random() * ms._maze[0].length);
+    }
+
+
+    ms.solve( startX, startY );
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
