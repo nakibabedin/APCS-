@@ -5,14 +5,22 @@
  **/
 
 /***
-    DISCO
+    DISCO:
+    1) the remove method in the iterator removes the most recently returned item.
+    2) you have to typecast when you use <iterator>,next()
 
-    QCC
+    QCC:
+    1) why did the API say that remove() removes the "last" returned item? Isn't it misleading?
 
     SUMMARY THE FIRST:
+    hasNext() --> checks if there is a value after this index
+    next() --> returns the next element in the list
+    renmove() --> removes the last item in the list.
 
     SUMMARY THE SECOND:
-
+    hasNext() --> checks if there is a item after this index
+    next() --> returns the next element in the list
+    remove() --> removes the most recently returned item from the collection. It then calls next()
 **/
 
 
@@ -125,7 +133,7 @@ public class ItrWork
       System.out.println(k);
     }
 
-System.out.println("\n");
+    System.out.println("\n");
     // b) explicitly using an iterator
 
     Iterator it = L.iterator();
