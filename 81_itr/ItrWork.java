@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 //(P)BNJ -- Brian Li, Jefford Shau, Nakib Abedin
 //APCS pd07
 //HW81 - Thank You, Next
 //2022-03-24r
 //time spent: 0.1 hrs + class time
 
+=======
+>>>>>>> 2a37c1ba062908049d22305440aa3729acc5e9f3
 /***
  * class ItrWork
  *  SKELETON
