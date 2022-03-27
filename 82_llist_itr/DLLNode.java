@@ -1,3 +1,19 @@
+//(P)BNJ -- Brian Li, Jefford Shau, Nakib Abedin
+//APCS pd07
+//HW82 - Roll Your Own Iterator
+//2022-03-26r
+//time spent: 0.6 hrs + class time
+
+/*
+DISCO
+- The iterator() method simply returns a new object of MyIterator.
+
+QCC
+- What is the point of _okToRemove?
+- How does the foreach function work within classes implementing Iterator?
+- How can an inner class call the function of an outer class?
+*/
+
 /*****************************************************
  * class DLLNode
  * Implements a node, for use in lists and other container classes.
@@ -10,7 +26,7 @@ public class DLLNode<T> {
 
 
     // constructor -- initializes instance vars
-    public DLLNode( T value, DLLNode<T> prev, DLLNode<T> next ) 
+    public DLLNode( T value, DLLNode<T> prev, DLLNode<T> next )
 {
 	_cargo = value;
 	_nextNode = next;
@@ -53,7 +69,7 @@ public class DLLNode<T> {
 
 
     //main method for testing
-    public static void main( String[] args ) 
+    public static void main( String[] args )
 {
 	//Below is an exercise in creating a linked list...
 
@@ -67,7 +83,7 @@ public class DLLNode<T> {
 	//Create a third node after the second
 	first.getNext().setNext( new DLLNode<String>( "cow", null ) );
 
-	DLLNode temp = first; 
+	DLLNode temp = first;
 	while( temp != null ) {
 	    System.out.println( temp );
 	    temp = temp.getNext();

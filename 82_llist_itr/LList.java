@@ -1,3 +1,19 @@
+//(P)BNJ -- Brian Li, Jefford Shau, Nakib Abedin
+//APCS pd07
+//HW82 - Roll Your Own Iterator
+//2022-03-26r
+//time spent: 0.6 hrs + class time
+
+/*
+DISCO
+- The iterator() method simply returns a new object of MyIterator.
+
+QCC
+- What is the point of _okToRemove?
+- How does the foreach function work within classes implementing Iterator?
+- How can an inner class call the function of an outer class?
+*/
+
 /***
  * class LList v6
  * Implements a linked list of DLLNodes.
@@ -152,9 +168,10 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
 
 
   //return an Iterator over this list
-  public /* YOUR CODE HERE */
+  public Iterator iterator()
   {
     /* YOUR CODE HERE */
+    return new MyIterator();
   }
 
   //--------------------------------------------------------
@@ -255,7 +272,8 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     public MyIterator()
     {
       /* YOUR CODE HERE */
-      _dummy = new DLLNode<T>(head.getCargo(), head.getNext(), head.getLast());
+      // _dummy's next node is the first node, so the first node can be included in foreach
+      _dummy = new DLLNode(null, null, _head);
       _okToRemove = false;
     }
 
@@ -274,7 +292,9 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     {
       /* YOUR CODE HERE */
       if (hasNext()){
-        return _dummy.getNext().getCargo();
+        _okToRemove = true;
+        _dummy = _dummy.getNext();
+        return _dummy.getCargo();
       }
       else{ return null; }
     }
@@ -285,10 +305,31 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     //               (...so that hasNext() will not crash)
     public void remove()
     {
-            /* YOUR CODE HERE */
-            T temp = _dummy;
-            _dummy = new DLLNode<T>(_dummy.getNext(), )
-
+      /* YOUR CODE HERE */
+      if (_okToRemove){
+        // removing only node
+        if (_head == _tail){
+          removeFirst();
+          _dummy = _head = new DLLNode(null, null, null);
+        }
+        // removing first node
+        else if (_dummy == _head){
+          removeFirst();
+          _dummy = _head;
+        }
+        // removing last node
+        else if (_dummy == _tail){
+          removeLast();
+          _dummy = _tail;
+        }
+        // removing node in between
+        else{
+          _dummy.getNext().setPrev( _dummy.getPrev() );
+          _dummy.getPrev().setNext( _dummy.getNext() );
+        }
+      }
+      _okToRemove = false;
+      _size--;
     }
     //--------------^  Iterator interface methods  ^-------------
     //-----------------------------------------------------------
