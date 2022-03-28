@@ -1,3 +1,9 @@
+//(P)BNJ -- Brian Li, Jefford Shau, Nakib Abedin
+//APCS pd07
+//HW83 - Stacks on Stacks
+//2022-03-28r
+//time spent: class time
+
 /***
  * class Latkes
  * v1
@@ -7,9 +13,10 @@
 
 /***
     DISCO
-
+      - We thought of the end of the array as the top of the stack and this helped us implement the methods.
+      - The array and its size are encapsulated/hidden, while the methods are not.
     QCC
-
+      - How is this activiy different from all of the other array activities we have been doing?
  **/
 
 
@@ -59,12 +66,13 @@ public class Latkes
        here
     */
     if(!isEmpty()){
-      String temp = _stack[_stackSize];
-      _stack[_stackSize] = null;
+      String temp = _stack[_stackSize - 1];
+      _stack[_stackSize - 1] = null;
       _stackSize --;
       return temp;
     }
-  }// O(?)
+    return null;
+  }// O(1)
 
 
   //chk for emptiness
@@ -97,7 +105,7 @@ public class Latkes
   public static void main( String[] args )
   {
 
-    Latkes tastyStack = new Latkes(10);
+    Latkes tastyStack = new Latkes(12);
 
     tastyStack.push("aoo");
     tastyStack.push("boo");
