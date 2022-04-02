@@ -1,7 +1,20 @@
+/*
+TNPG (P)BNJ -- Brian Li, Nakib Abedin, Jefford Shau
+APCS pd07
+HW87 -- Queues
+2022-04-01
+Time Spent: .5 hrs + classtime
+
+DISCO:
+1) Queues are Stacks but FIFO instead of FILO
+
+QCC:
+1) What types of problems are Nodes useful for?
+2) Could we have made our dequeue method constant runtime with a _tail pointer?
+*/
 public class NodeQueue<QUASAR> implements Queue<QUASAR>{
 
 QNode<QUASAR> _front;
-QNode<QUASAR> _tail;
 int _size = 0;
 
 public NodeQueue(){
