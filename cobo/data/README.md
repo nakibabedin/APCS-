@@ -1,9 +1,9 @@
 ### Team (P)BNJ - Brian Li, Nakib Abedin, Jefford Shau
-
 ## Experience
-- A lot of the open ended questions seemed stupid to work with.
-- It was a pain getting -classpath to work on Windows using Git Bash.
-- The rest of the lab seemed pretty easy, just long.
+- Looking up information about data privacy and the effects of using collecting data was very interesting. 
+- We did not really see the value in some of the open ended questions.
+- We struggled in getting -classpath to work on Windows using Git Bash.
+- The rest of the lab seemed pretty easy, just time consuming.
 
 data sets:
 
@@ -15,9 +15,9 @@ data sets:
 To make a JAR available to runtime environment (JRE)...
 
 ```
-$ javac -classpath .:sinbad.jar -d . Driver.java
-$ java -classpath.:sinbad.jar Driver
+$ javac -classpath .:../sinbad.jar -d . Driver.java
+$ java -classpath .:../sinbad.jar Driver
 ```
 
-411 on sinbad
+411 on sinbad (xtra)
 https://berry-cs.github.io/sinbad/install-java
