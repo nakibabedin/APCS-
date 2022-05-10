@@ -242,8 +242,16 @@ public class BST
     System.out.println();
 
     System.out.println(arbol.search(7)); // should return null
+    System.out.println((arbol.search(4)).getValue()); // should return 4
+
     System.out.println(arbol.height()); // should return 3
-    System.out.println(arbol.numLeaves()); // should return 6
+    arbol.insert(8);
+    System.out.println(arbol.height()); // should return 4
+
+    System.out.println(arbol.numLeaves()); // should return 3
+    arbol.insert(7);
+    arbol.insert(9);
+    System.out.println(arbol.numLeaves()); // should return 4
 
     /**
        EXPECTED OUTPUT:
